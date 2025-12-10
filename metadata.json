@@ -1,0 +1,8 @@
+{
+  "name": "ClinicAI Portal",
+  "description": "A comprehensive clinic management portal featuring voice-to-prescription AI, medical report analysis, and patient management.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
