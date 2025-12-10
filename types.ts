@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 // --- types.ts ---
-=======
-// --- Hospital & Auth Types ---
->>>>>>> 441996b7c4f8841bb2063c38e3da1ce560a94b89
 
+// --- Hospital & Auth Types ---
 export interface Hospital {
     id: string;
     name: string;
@@ -15,32 +12,21 @@ export interface Hospital {
 // --- Patient Types ---
 
 export interface Patient {
-<<<<<<< HEAD
-  id: string; // UUID
-  hospitalId: string;
-  patientCode: string; // HOSP123-2025-00045
-  name: string;
-  age: number;
-  gender: 'Male' | 'Female' | 'Other';
-  address: string;
-  phone?: string;
-  createdAt: string;
-  lastVisitDate?: string;
-
-  // 🛑 CRUCIAL ADDITION FOR VITALS PERSISTENCE (Receptionist Workflow) 🛑
-  lastVitals?: Vitals; 
-=======
-    id: string;
+    id: string; // UUID
     hospitalId: string;
+    patientCode: string; // HOSP123-2025-00045 (Kept from HEAD/Merged)
     name: string;
     age: number;
     gender: 'Male' | 'Female' | 'Other';
-    patientCode: string;
-    phone: string;
-    email: string;
+    // Combined Fields
+    address?: string; // Made optional for flexibility
+    phone?: string;
+    email?: string; // Added from 441996b7c4f8841bb2063c38e3da1ce560a94b89
     createdAt: string; // ISO date string
     lastVisitDate?: string; // ISO date string
->>>>>>> 441996b7c4f8841bb2063c38e3da1ce560a94b89
+
+    // 🛑 CRUCIAL ADDITION FOR VITALS PERSISTENCE (Receptionist Workflow) 🛑
+    lastVitals?: Vitals; 
 }
 
 // --- Visit Types (Consultation Status) ---
@@ -60,11 +46,11 @@ export interface Visit {
  * The keys must match the data used in dbService.ts and VitalsInputModal.tsx.
  */
 export interface Vitals {
-    bp?: string;          // Blood Pressure (e.g., '120/80 mmHg')
-    pulse?: string;       // Pulse Rate (e.g., '72 bpm')
-    temperature?: string; // Temperature (e.g., '98.6 °F')
-    weight?: string;      // Weight (e.g., '75 kg')
-    spo2?: string;        // Oxygen Saturation (e.g., '98 %')
+    bp?: string; 			// Blood Pressure (e.g., '120/80 mmHg')
+    pulse?: string; 		// Pulse Rate (e.g., '72 bpm')
+    temperature?: string; 	// Temperature (e.g., '98.6 °F')
+    weight?: string; 		// Weight (e.g., '75 kg')
+    spo2?: string; 			// Oxygen Saturation (e.g., '98 %')
     // Allows for any additional vital signs not strictly listed
     [key: string]: string | undefined; 
 }
@@ -122,18 +108,9 @@ export interface AIPrescriptionResponse {
 
 // Type for AI-generated report analysis
 export interface AIReportAnalysisResponse {
-<<<<<<< HEAD
-    report_type: string;
-    extracted_text: string;
-    findings: string;
-    impression: string;
-    doctors_summary: string[]; // Matches the new required structure
-}
-=======
     report_type: string;
     extracted_text: string;
     findings: string;
     impression: string;
-    doctors_summary: string[]; // Array of 3 critical bullet points
+    doctors_summary: string[]; // Concise summary of critical findings
 }
->>>>>>> 441996b7c4f8841bb2063c38e3da1ce560a94b89
